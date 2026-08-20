@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methembe — Software Developer & Digital Product Builder</title>
+  <meta name="description" content="Methembe Mkhize — Software Developer building responsive web experiences, digital products, and brand platforms.">
+  <meta property="og:title" content="Methembe — Software Developer & Digital Product Builder">
+  <meta property="og:description" content="Building responsive web experiences, digital products, and brand platforms with code, design, and strategy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://methembe.dev">
+  <meta property="og:image" content="images/mkhize%20profile%20pic.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Methembe — Software Developer & Digital Product Builder">
+  <meta name="twitter:description" content="Building responsive web experiences, digital products, and brand platforms with code, design, and strategy.">
+  <meta name="twitter:image" content="images/mkhize%20profile%20pic.jpeg">
+  <link rel="icon" type="image/jpeg" href="images/mkhize%20profile%20pic.jpeg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- BOOT LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-corner tl"></div>
+    <div class="loader-corner tr"></div>
+    <div class="loader-corner bl"></div>
+    <div class="loader-corner br"></div>
+    <span class="loader-label tl-label">SYS.INIT</span>
+    <span class="loader-label tr-label">v2.0</span>
+    <span class="loader-label bl-label">LOADING...</span>
+    <span class="loader-label br-label">PLEASE WAIT</span>
+    <div class="loader-center">
+      <div class="loader-brackets">
+        <div class="bracket tl-bracket"></div>
+        <div class="bracket tr-bracket"></div>
+        <div class="bracket bl-bracket"></div>
+        <div class="bracket br-bracket"></div>
+      </div>
+      <span class="loader-counter" id="loaderCounter">00</span>
+    </div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loaderBar"></div>
+    </div>
+    <p class="loader-status" id="loaderStatus">setting up...</p>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div class="bg-3d" id="bg3d">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+    <div class="floating-icons" id="floatingIcons"></div>
+  </div>
+
+
+  <!-- SOUND TOGGLE -->
+  <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
+    <i class="fas fa-volume-high" id="soundIcon"></i>
+  </button>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">M<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#journey" class="nav-link">Journey</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#experience" class="mobile-link">Experience</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#journey" class="mobile-link">Journey</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title" data-animate="fade-up">
+          Hi, I'm <span class="accent">Methembe</span><br>
+          <span class="hero-subtitle">I am <span class="typing"></span></span>
+        </h1>
+        <p class="hero-desc" data-animate="fade-up">
+          A Software developer exploring how code, AI, and digital marketing
+          come together to create high-performing digital experiences.
+        </p>
+        <div class="hero-buttons" data-animate="fade-up">
+          <a href="#projects" class="btn btn-primary">
+            <span>View Projects</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            <span>Contact Me</span>
+          </a>
+          <a href="Methembe_Mkhize_CV.pdf" download class="btn btn-ghost">
+            <span>Download CV</span>
+            <i class="fas fa-download"></i>
+          </a>
+        </div>
+        <div class="hero-stats" data-animate="fade-up">
+          <div class="stat">
+            <span class="stat-num">10+</span>
+            <span class="stat-label">Projects Built</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">10+</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Responsive</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" data-animate="fade-up">
+        <div class="portrait-frame">
+          <video class="portrait-video" autoplay muted loop playsinline>
+            <source src="background.mp4" type="video/mp4">
+          </video>
+          <div class="portrait-glow"></div>
+          <div class="portrait-ring"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-inner">
+        <span class="section-tag" data-animate="slide-left">01 — ABOUT</span>
+        <h2 class="section-title" data-animate="clip-reveal">A bit about me</h2>
+        <div class="about-grid" data-animate="fade-up">
+          <div class="about-statement">
+            <p>I'm a Software Developer who enjoys turning ideas into digital experiences that are useful, intuitive, and well designed.</p>
+            <p>I'm interested in more than just writing code. I enjoy exploring how a product works, how people interact with it, and how it can connect with the right audience. That's what led me to explore software development alongside product design and digital marketing.</p>
+            <p>Through personal and collaborative projects, I've had the opportunity to design and build responsive web experiences, work with UI/UX principles, use Git and GitHub, and take projects from an idea to a deployed product.</p>
+            <p>I'm currently completing a Software Development Specialization at Uncommon.org, where I'm continuing to learn by building, experimenting, and solving real problems.</p>
+            <p>At the end of the day, I enjoy <strong>building things, learning along the way, and creating digital products that people can actually find useful.</strong></p>
+          </div>
+          <div class="about-stats">
+            <div class="about-stat-card glass">
+              <i class="fas fa-layer-group"></i>
+              <span class="about-stat-num">10+</span>
+              <span class="about-stat-label">Projects Built</span>
+            </div>
+            <div class="about-stat-card glass">
+              <i class="fas fa-code"></i>
+              <span class="about-stat-num">10+</span>
+              <span class="about-stat-label">Technologies</span>
+            </div>
+            <div class="about-stat-card glass">
+              <i class="fas fa-mobile-screen"></i>
+              <span class="about-stat-num">100%</span>
+              <span class="about-stat-label">Responsive Design</span>
+            </div>
+            <div class="about-stat-card glass">
+              <i class="fab fa-figma"></i>
+              <span class="about-stat-num">Figma</span>
+              <span class="about-stat-label">& Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-inner">
+        <span class="section-tag" data-animate="slide-left">02 — SKILLS</span>
+        <h2 class="section-title" data-animate="clip-reveal">Tools & Technologies</h2>
+        <div class="skills-grid">
+          <div class="skill-card glass" data-animate="scale-in">
+            <div class="skill-header">
+              <span class="skill-num">01</span>
+              <h3>Development</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+              <div class="skill-item"><i class="fab fa-react"></i><span>React</span></div>
+              <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
+              <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+              <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+              <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+              <div class="skill-item"><i class="fab fa-github"></i><span>GitHub</span></div>
+            </div>
+          </div>
+          <div class="skill-card glass" data-animate="scale-in">
+            <div class="skill-header">
+              <span class="skill-num">02</span>
+              <h3>Design & Product</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item"><i class="fab fa-figma"></i><span>Figma</span></div>
+              <div class="skill-item"><i class="fas fa-palette"></i><span>UI/UX Design</span></div>
+              <div class="skill-item"><i class="fas fa-vector-square"></i><span>Canva</span></div>
+              <div class="skill-item"><i class="fas fa-mobile-screen"></i><span>Responsive Design</span></div>
+              <div class="skill-item"><i class="fas fa-wand-magic-sparkles"></i><span>Prototyping</span></div>
+              <div class="skill-item"><i class="fas fa-object-ungroup"></i><span>Wireframing</span></div>
+            </div>
+          </div>
+          <div class="skill-card glass" data-animate="scale-in">
+            <div class="skill-header">
+              <span class="skill-num">03</span>
+              <h3>Digital Marketing</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item"><i class="fas fa-bullhorn"></i><span>Digital Marketing</span></div>
+              <div class="skill-item"><i class="fas fa-scroll"></i><span>Content Strategy</span></div>
+              <div class="skill-item"><i class="fas fa-share-nodes"></i><span>Social Media Marketing</span></div>
+              <div class="skill-item"><i class="fas fa-search"></i><span>SEO</span></div>
+              <div class="skill-item"><i class="fas fa-envelope"></i><span>Email Marketing</span></div>
+              <div class="skill-item"><i class="fab fa-mailchimp"></i><span>Mailchimp</span></div>
+            </div>
+          </div>
+          <div class="skill-card glass" data-animate="scale-in">
+            <div class="skill-header">
+              <span class="skill-num">04</span>
+              <h3>Deployment & Tools</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item"><i class="fas fa-cloud"></i><span>Vercel</span></div>
+              <div class="skill-item"><i class="fas fa-code"></i><span>VS Code</span></div>
+              <div class="skill-item"><i class="fab fa-npm"></i><span>npm</span></div>
+              <div class="skill-item"><i class="fab fa-chrome"></i><span>Chrome DevTools</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="section-inner">
+        <span class="section-tag" data-animate="slide-left">03 — WHAT I DO</span>
+        <h2 class="section-title" data-animate="clip-reveal">Experience</h2>
+        <div class="exp-grid">
+          <div class="exp-card glass" data-animate="scale-in">
+            <i class="fas fa-code exp-icon"></i>
+            <h3>Frontend Developer</h3>
+            <p>Building responsive web applications with clean UI and engaging interactions using HTML, CSS, and JavaScript.</p>
+          </div>
+          <div class="exp-card glass" data-animate="scale-in">
+            <i class="fas fa-palette exp-icon"></i>
+            <h3>UI/UX Designer</h3>
+            <p>Designing intuitive user experiences and modern interfaces with a focus on accessibility and visual hierarchy.</p>
+          </div>
+          <div class="exp-card glass" data-animate="scale-in">
+            <i class="fas fa-bullhorn exp-icon"></i>
+            <h3>Digital Marketing</h3>
+            <p>Applying content marketing, SEO, and AI-driven strategies to build high-performing digital experiences.</p>
+          </div>
+          <div class="exp-card glass" data-animate="scale-in">
+            <i class="fas fa-rocket exp-icon"></i>
+            <h3>Digital Product Builder</h3>
+            <p>Transforming ideas into functional digital products through research, design, and iterative development.</p>
+          </div>
+          <div class="exp-card glass" data-animate="scale-in">
+            <i class="fas fa-lightbulb exp-icon"></i>
+            <h3>Product Thinker</h3>
+            <p>Looking beyond the interface to understand the problem, the user, and the purpose behind a product — and finding practical ways to bring those ideas to life.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-inner">
+        <span class="section-tag" data-animate="slide-left">04 — WORK</span>
+        <h2 class="section-title" data-animate="clip-reveal">Featured Projects</h2>
+        <div class="projects-grid">
+
+          <div class="project-card glass" data-animate="scale-in" data-case="launch-path">
+            <div class="project-image gradient-crimson-1">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/projects/LaunchPath.png" alt="LaunchPath AI — AI-powered career development platform screenshot">
+            </div>
+            <div class="project-body">
+              <div class="project-category">AI Platform</div>
+              <h3>LaunchPath AI</h3>
+              <p>An AI-powered career development platform that helps students become internship-ready through assessment, portfolio analysis, and personalized guidance.</p>
+              <div class="project-tags">
+                <span>React</span><span>JavaScript</span><span>HTML/CSS</span><span>Styled Components</span><span>React Router</span><span>Git/GitHub</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://launch-path-ivory.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>The original site had broken accessibility, poor visual hierarchy, and wasn't responsive on mobile devices.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Audited the existing layout, redesigned the component structure with semantic HTML, and rebuilt the styles with a mobile-first CSS approach.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A fully responsive, accessible website with improved load times and a cleaner visual experience across all devices.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="aeris">
+            <div class="project-image gradient-surface-1">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/Aeris.png" alt="Aeris — Aviation Intelligence Platform">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Aviation Platform</div>
+              <h3>Aeris</h3>
+              <p>A modern aviation intelligence platform that makes aviation data accessible, visually engaging, and editorial in experience.</p>
+              <div class="project-tags">
+                <span>React</span><span>TypeScript</span><span>Vite</span><span>React Router</span><span>Design Systems</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://aeris-m.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Aviation websites either provide large amounts of data with poor UX or focus heavily on enthusiasts while excluding casual users.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Prioritized information hierarchy, reduced visual clutter, created editorial-style layouts, and introduced progressive disclosure patterns.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A premium aviation experience combining data-heavy products with thoughtful user experience design and responsive layouts.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="velaire">
+            <div class="project-image gradient-crimson-2">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/velaire.png" alt="VELAIRE — Luxury Fashion House">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Luxury Fashion</div>
+              <h3>VELAIRE</h3>
+              <p>A luxury fashion house digital brand world designed to communicate culture, craftsmanship, and modern luxury beyond e-commerce.</p>
+              <div class="project-tags">
+                <span>React</span><span>Vite</span><span>React Router</span><span>JavaScript</span><span>Editorial Design</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://velaire.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Emerging fashion brands build websites that look like online stores with product grids and sales messaging instead of aspirational experiences.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Designed as a digital luxury house with editorial storytelling, brand philosophy, campaign imagery, and deliberate pacing over transactional patterns.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A brand ecosystem that sells belonging, identity, and culture before products, using sophisticated typography, whitespace, and architectural layouts.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="vicfalls-one">
+            <div class="project-image gradient-surface-2">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/Vicfalls-One.png" alt="VicFalls One — Tourism Ecosystem">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Tourism Platform</div>
+              <h3>VicFalls One</h3>
+              <p>A digital tourism ecosystem centralizing accommodation, activities, restaurants, and trip planning for Victoria Falls.</p>
+              <div class="project-tags">
+                <span>React</span><span>Styled Components</span><span>Framer Motion</span><span>Node.js</span><span>PostgreSQL</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://vicfalls-one.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Visitors needed multiple websites for accommodation, activities, restaurants, and transportation — creating a fragmented travel experience.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Built modular architecture with reusable components, scalable database design, JWT authentication, and consistent navigation patterns.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A full-stack tourism platform demonstrating product thinking and the ability to design systems solving real-world business problems.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="flyta-vertex">
+            <div class="project-image gradient-crimson-3">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/flyta-vertex.vercel.app.png" alt="Flyta Vertex — Airport Transfers">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Transfers Platform</div>
+              <h3>Flyta Vertex</h3>
+              <p>A digital airport transfers platform simplifying transportation between airports, hotels, and tourism destinations.</p>
+              <div class="project-tags">
+                <span>React</span><span>JavaScript</span><span>Styled Components</span><span>Framer Motion</span><span>REST APIs</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://flyta-vertex.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Airport transportation is fragmented with unclear pricing, unreliable operators, and complex booking processes that create traveller stress.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Designed clear booking flows, consistent visual design, strong information hierarchy, and immediate user feedback through form validation.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A service-oriented platform solving real-world transportation challenges while maintaining focus on usability and customer trust.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="mbano-manor">
+            <div class="project-image gradient-surface-3">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/mbano-manor.png" alt="Mbano Manor — Luxury Hospitality">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Hospitality Website</div>
+              <h3>Mbano Manor</h3>
+              <p>A luxury hospitality website concept using immersive storytelling, elegant typography, and premium digital experience design.</p>
+              <div class="project-tags">
+                <span>React</span><span>Vite</span><span>React Router</span><span>Styled Components</span><span>Context API</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://mbano-manor.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Many hospitality websites rely on generic templates that fail to communicate the emotional value of a destination to luxury guests.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Focused on whitespace, typography, visual rhythm, and content hierarchy instead of excessive visual effects to communicate luxury.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>An emotionally engaging experience supporting luxury branding through large imagery, elegant typography, and smooth interactions.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="netflix-clone">
+            <div class="project-image gradient-crimson-1">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/projects/Netflix-Clone.png" alt="Netflix Clone — Streaming Platform">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Streaming Platform</div>
+              <h3>Netflix Clone</h3>
+              <p>A streaming platform clone recreating core Netflix features including movie browsing, categorization, and dynamic content rendering.</p>
+              <div class="project-tags">
+                <span>React</span><span>JavaScript</span><span>React Router</span><span>TMDB API</span><span>State Management</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://netflix-clone-m.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Streaming platforms must manage large amounts of content while maintaining fast navigation and engaging user experiences.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Built structured state management for API data, handled loading states and errors, and created reusable components for content rendering.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A responsive streaming UI strengthening React fundamentals, API integration patterns, component architecture, and dynamic data handling.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="smoke-house">
+            <div class="project-image gradient-surface-1">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/projects/Smoke-House-Redesign.png" alt="Smoke House Redesign — Restaurant website with immersive menu and gallery">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Restaurant Website</div>
+              <h3>Smoke House Redesign</h3>
+              <p>A full restaurant website redesign with an immersive menu, gallery, and booking experience.</p>
+              <div class="project-tags">
+                <span>HTML/CSS</span><span>JavaScript</span><span>GSAP</span><span>Figma</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://smoke-house-website-redesign.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>The restaurant's online presence did not fully communicate its unique atmosphere or encourage online engagement.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Studied restaurant UX best practices, created a cinematic hero section, designed interactive menu browsing, and optimized for mobile.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A sophisticated digital experience that reflects the restaurant's atmosphere, showcases its offerings beautifully, and simplifies reservations.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="malika-elite">
+            <div class="project-image gradient-crimson-2">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/projects/Malika-Elite.png" alt="Malika Elite — African luxury brand mobile app interface">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Luxury Brand</div>
+              <h3>Malika Elite</h3>
+              <p>A mobile-first luxury lifestyle application combining brand storytelling, curated collections, and premium digital interactions.</p>
+              <div class="project-tags">
+                <span>React</span><span>JavaScript</span><span>HTML/CSS</span><span>Styled Components</span><span>Figma</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://malika-elite.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Luxury-inspired digital experiences either rely on traditional European aesthetics or lean too far into cultural stereotypes.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Designed a mobile-first interface with editorial layouts, cinematic imagery, elegant typography, and refined color palettes.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A premium digital experience positioning Malika Elite as a contemporary African luxury house with international appeal.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="delta">
+            <div class="project-image gradient-surface-2">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/projects/Delta.png" alt="Delta Production — Production company website portfolio showcase">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Production Company</div>
+              <h3>Delta Production</h3>
+              <p>A modern production company website designed to showcase creative work, establish credibility, and generate client inquiries.</p>
+              <div class="project-tags">
+                <span>HTML/CSS</span><span>JavaScript</span><span>Figma</span><span>Responsive</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://delta-production.vercel.app/pages/home.html" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Production companies struggle to balance showcasing creative work with building trust among potential clients.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Built a portfolio-first experience with cinematic hero sections, client testimonials, and optimized responsive layouts.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A modern production company website that effectively showcases creative work, builds trust, and creates a strong first impression.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="jumpstart">
+            <div class="project-image gradient-crimson-3">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/projects/Jumpstart.png" alt="Jumpstart — Educational product landing page design">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Landing Page</div>
+              <h3>Jumpstart</h3>
+              <p>A conversion-led educational product landing page designed to build credibility and drive enrolments.</p>
+              <div class="project-tags">
+                <span>React</span><span>JavaScript</span><span>HTML/CSS</span><span>Styled Components</span><span>React Router</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://jumpstart-mkhize.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>Educational products need landing pages that build credibility fast and convert visitors into enrolled students.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Designed a conversion-led layout with social proof sections, clear curriculum breakdowns, and a prominent enrollment CTA.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A focused, high-trust landing page concept that balances information density with clear conversion pathways.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass" data-animate="scale-in" data-case="vicfalls">
+            <div class="project-image gradient-surface-3">
+              <div class="macos-bar">
+                <span class="macos-dot"></span><span class="macos-dot"></span><span class="macos-dot"></span>
+              </div>
+              <img src="images/projects/VicFalls-Televivi.png" alt="VicFalls Televivi — Victoria Falls community and media platform">
+            </div>
+            <div class="project-body">
+              <div class="project-category">Community Platform</div>
+              <h3>VicFalls Televivi</h3>
+              <p>A digital community and media platform created to serve as a central hub for Victoria Falls events, content, and community engagement.</p>
+              <div class="project-tags">
+                <span>HTML/CSS</span><span>JavaScript</span><span>Figma</span><span>Responsive</span><span>Git/GitHub</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://vic-falls-televivi-oelv.vercel.app/" target="_blank" class="btn-project-primary"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+                <a href="#" class="btn-project-ghost"><i class="fab fa-github"></i></a>
+                <button class="btn-case-study">Case Study <i class="fas fa-chevron-down"></i></button>
+              </div>
+              <div class="case-study-panel">
+                <div class="case-study-content">
+                  <div class="case-col">
+                    <h4>The Problem</h4>
+                    <p>The platform needed to bring together multiple content types while maintaining simplicity and ease of navigation.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Process</h4>
+                    <p>Followed a content-first approach with event-focused layouts, responsive navigation structures, and optimized content loading.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>The Result</h4>
+                    <p>A clean, accessible digital platform that successfully showcases community content and promotes local events.</p>
+                  </div>
+                </div>
+                <button class="btn-read-more">Read Full Case Study <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section id="journey" class="section">
+      <div class="section-inner">
+        <span class="section-tag" data-animate="slide-left">05 — JOURNEY</span>
+        <h2 class="section-title" data-animate="clip-reveal">My Journey</h2>
+        <div class="editorial-list">
+          <div class="editorial-item" data-animate="slide-left">
+            <span class="editorial-num">01</span>
+            <p><strong>Where It Started</strong> — Started with HTML and CSS, learning how websites are structured, styled, and brought to life.</p>
+          </div>
+          <div class="editorial-item" data-animate="slide-left">
+            <span class="editorial-num">02</span>
+            <p><strong>Learning to Build</strong> — Moved into JavaScript and began understanding how to turn static pages into interactive experiences.</p>
+          </div>
+          <div class="editorial-item" data-animate="slide-left">
+            <span class="editorial-num">03</span>
+            <p><strong>From Pages to Products</strong> — Started building responsive websites and small projects, learning through experimentation, mistakes, and iteration.</p>
+          </div>
+          <div class="editorial-item" data-animate="slide-left">
+            <span class="editorial-num">04</span>
+            <p><strong>Designing the Experience</strong> — Developed an interest in UI/UX and product design, learning how to create interfaces that are visually appealing and easy to use.</p>
+          </div>
+          <div class="editorial-item" data-animate="slide-left">
+            <span class="editorial-num">05</span>
+            <p><strong>Building with Purpose</strong> — Expanded into Git, GitHub, collaboration, deployment, and practical development workflows while working on real projects.</p>
+          </div>
+          <div class="editorial-item" data-animate="slide-left">
+            <span class="editorial-num">06</span>
+            <p><strong>Beyond Development</strong> — Explored digital marketing, content, SEO, and AI to better understand how digital products reach people and create value.</p>
+          </div>
+          <div class="editorial-item" data-animate="slide-left">
+            <span class="editorial-num">07</span>
+            <p><strong>Where I Am Now</strong> — Currently completing a Software Development Specialization at Uncommon.org and continuing to build, learn, and experiment through hands-on projects.</p>
+          </div>
+          <div class="editorial-item" data-animate="slide-left">
+            <div class="editorial-future glass">
+              <div class="future-label">Future Goal</div>
+              <p>Build digital products that solve meaningful problems and create opportunities for people and communities across Africa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-inner">
+        <span class="section-tag" data-animate="slide-left">06 — CONTACT</span>
+        <h2 class="section-title" data-animate="clip-reveal">Let's work together</h2>
+        <div class="contact-grid">
+          <div class="contact-info" data-animate="slide-left">
+            <p class="contact-desc">Have an interesting project, design concept, or marketing strategy you want to develop? Drop a line and let's link up.</p>
+            <div class="contact-channels">
+              <a href="mailto:methembemkhize89@gmail.com" class="contact-channel glass">
+                <i class="fas fa-envelope"></i>
+                <span>methembemkhize89@gmail.com</span>
+              </a>
+              <div class="contact-channel glass">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Available Globally / Remote</span>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="https://github.com/Methembe11" target="_blank" class="social-link glass" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/ayanda-mkhize-655a5942a/" target="_blank" class="social-link glass" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <form class="contact-form glass" data-animate="slide-right" id="contactForm">
+            <div class="form-row">
+              <input type="text" name="name" required placeholder="Your Name">
+              <input type="email" name="email" required placeholder="Your Email">
+            </div>
+            <textarea name="message" rows="5" required placeholder="Project Details / Message"></textarea>
+            <button type="submit" class="btn btn-primary btn-full">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- CASE STUDY MODAL -->
+  <div class="case-modal" id="caseModal">
+    <div class="case-modal-backdrop"></div>
+    <div class="case-modal-content">
+      <button class="case-modal-close" id="caseModalClose"><i class="fas fa-xmark"></i></button>
+      <span class="case-modal-tag" id="caseModalTag"></span>
+      <h2 class="case-modal-title" id="caseModalTitle"></h2>
+      <div class="case-modal-body" id="caseModalBody"></div>
+    </div>
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
