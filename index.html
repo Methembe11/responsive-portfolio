@@ -23,6 +23,9 @@
 </head>
 <body>
 
+  <!-- SKIP TO CONTENT (accessibility) -->
+  <a href="#home" class="skip-link">Skip to content</a>
+
   <!-- CUSTOM CURSOR -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
@@ -859,10 +862,10 @@
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- CASE STUDY MODAL -->
-  <div class="case-modal" id="caseModal">
+  <div class="case-modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle">
     <div class="case-modal-backdrop"></div>
     <div class="case-modal-content">
-      <button class="case-modal-close" id="caseModalClose"><i class="fas fa-xmark"></i></button>
+      <button class="case-modal-close" id="caseModalClose" aria-label="Close case study"><i class="fas fa-xmark"></i></button>
       <span class="case-modal-tag" id="caseModalTag"></span>
       <h2 class="case-modal-title" id="caseModalTitle"></h2>
       <div class="case-modal-body" id="caseModalBody"></div>

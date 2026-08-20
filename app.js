@@ -320,79 +320,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // --- FLOATING FA ICONS ---
-    const bgCanvas = document.getElementById("bgCanvas");
-    if (bgCanvas) {
-      const ctx = bgCanvas.getContext("2d");
-      let w, h;
-
-      function resizeCanvas() {
-        w = bgCanvas.width = window.innerWidth;
-        h = bgCanvas.height = window.innerHeight;
-      }
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-
-      const accentColor = () => {
-        return getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#dc2626";
-      };
-
-      class Particle {
-        constructor() { this.reset(); }
-        reset() {
-          this.x = Math.random() * w;
-          this.y = Math.random() * h;
-          this.size = 1 + Math.random() * 2;
-          this.speedX = (Math.random() - 0.5) * 0.3;
-          this.speedY = (Math.random() - 0.5) * 0.3;
-          this.opacity = 0.1 + Math.random() * 0.3;
-        }
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) this.reset();
-        }
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,255,255,${this.opacity})`;
-          ctx.fill();
-        }
-      }
-
-      const particles = Array.from({ length: 60 }, () => new Particle());
-
-      let canvasMouseX = w / 2, canvasMouseY = h / 2;
-      document.addEventListener("mousemove", (e) => {
-        canvasMouseX = e.clientX;
-        canvasMouseY = e.clientY;
-      });
-
-      function animateCanvas() {
-        ctx.clearRect(0, 0, w, h);
-        particles.forEach(p => { p.update(); p.draw(); });
-
-        particles.forEach(p => {
-          const dx = p.x - canvasMouseX;
-          const dy = p.y - canvasMouseY;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 150) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(canvasMouseX, canvasMouseY);
-            ctx.strokeStyle = accentColor();
-            ctx.globalAlpha = (1 - dist / 150) * 0.08;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-            ctx.globalAlpha = 1;
-          }
-        });
-
-        requestAnimationFrame(animateCanvas);
-      }
-      animateCanvas();
-    }
-
-    // --- FLOATING FA ICONS ---
     const iconsContainer = document.getElementById("floatingIcons");
     if (iconsContainer) {
       const faIcons = [
@@ -477,29 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // --- NOISE TEXTURE CANVAS ---
-    const noiseCanvas = document.getElementById("noiseCanvas");
-    if (noiseCanvas) {
-      const nCtx = noiseCanvas.getContext("2d");
-      noiseCanvas.width = 256;
-      noiseCanvas.height = 256;
-
-      function generateNoise() {
-        const imageData = nCtx.createImageData(256, 256);
-        for (let i = 0; i < imageData.data.length; i += 4) {
-          const val = Math.random() * 255;
-          imageData.data[i] = val;
-          imageData.data[i + 1] = val;
-          imageData.data[i + 2] = val;
-          imageData.data[i + 3] = 255;
-        }
-        nCtx.putImageData(imageData, 0, 0);
-      }
-
-      generateNoise();
-      setInterval(generateNoise, 100);
-    }
-
     // --- MAGNETIC HOVER ON BUTTONS ---
     document.querySelectorAll(".btn").forEach(el => {
       el.addEventListener("mousemove", (e) => {
@@ -563,43 +467,41 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
     window.addEventListener("scroll", updateActiveNav);
-  }
 
-  // ============================================
-  // AUTO TYPING
-  // ============================================
-  const dynamicWords = ["Software Developer", "UI/UX Designer", "Problem Solver", "Digital Marketer"];
-  let arrayPointer = 0;
-  let stringLetterPointer = 0;
-  let removalFlag = false;
-  const typingElement = document.querySelector(".typing");
+    // --- AUTO TYPING (starts after boot sequence completes) ---
+    const dynamicWords = ["Software Developer", "UI/UX Designer", "Problem Solver", "Digital Marketer"];
+    let arrayPointer = 0;
+    let stringLetterPointer = 0;
+    let removalFlag = false;
+    const typingElement = document.querySelector(".typing");
 
-  function processTypingLoop() {
-    if (!typingElement) return;
-    const contextWord = dynamicWords[arrayPointer];
+    function processTypingLoop() {
+      if (!typingElement) return;
+      const contextWord = dynamicWords[arrayPointer];
 
-    if (removalFlag) {
-      typingElement.textContent = contextWord.substring(0, stringLetterPointer - 1);
-      stringLetterPointer--;
-    } else {
-      typingElement.textContent = contextWord.substring(0, stringLetterPointer + 1);
-      stringLetterPointer++;
+      if (removalFlag) {
+        typingElement.textContent = contextWord.substring(0, stringLetterPointer - 1);
+        stringLetterPointer--;
+      } else {
+        typingElement.textContent = contextWord.substring(0, stringLetterPointer + 1);
+        stringLetterPointer++;
+      }
+
+      let speed = removalFlag ? 40 : 80;
+
+      if (!removalFlag && stringLetterPointer === contextWord.length) {
+        speed = 1600;
+        removalFlag = true;
+      } else if (removalFlag && stringLetterPointer === 0) {
+        removalFlag = false;
+        arrayPointer = (arrayPointer + 1) % dynamicWords.length;
+        speed = 400;
+      }
+
+      setTimeout(processTypingLoop, speed);
     }
-
-    let speed = removalFlag ? 40 : 80;
-
-    if (!removalFlag && stringLetterPointer === contextWord.length) {
-      speed = 1600;
-      removalFlag = true;
-    } else if (removalFlag && stringLetterPointer === 0) {
-      removalFlag = false;
-      arrayPointer = (arrayPointer + 1) % dynamicWords.length;
-      speed = 400;
-    }
-
-    setTimeout(processTypingLoop, speed);
+    setTimeout(processTypingLoop, 500);
   }
-  setTimeout(processTypingLoop, 3000);
 
   // ============================================
   // CONTACT FORM

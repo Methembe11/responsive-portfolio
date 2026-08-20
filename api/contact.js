@@ -1,5 +1,12 @@
 import { Resend } from "resend";
 
+/**
+ * Strip HTML tags from a string to prevent injection into email body.
+ */
+function stripHtml(str) {
+  return String(str).replace(/<[^>]*>/g, "").trim();
+}
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -11,20 +18,27 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "All fields are required" });
   }
 
+  // Sanitize all user inputs to prevent XSS in email body
+  const safeName = stripHtml(name);
+  const safeEmail = stripHtml(email);
+  const safeMessage = stripHtml(message).replace(/\n/g, "<br>");
+
+  const recipientEmail = process.env.CONTACT_EMAIL || "mkhizemethembe89@gmail.com";
+
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
       from: `Portfolio Contact <onboarding@resend.dev>`,
-      to: "mkhizemethembe89@gmail.com",
-      replyTo: email,
-      subject: `New message from ${name}`,
+      to: recipientEmail,
+      replyTo: safeEmail,
+      subject: `New message from ${safeName}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <p>${safeMessage}</p>
       `,
     });
 
