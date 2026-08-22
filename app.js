@@ -134,6 +134,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ============================================
+  // MOBILE NAV (HAMBURGER) — bound immediately,
+  // works even while the boot loader is running
+  // ============================================
+  const navToggle = document.getElementById("navToggle");
+  const mobileNav = document.getElementById("mobileNav");
+
+  function isMobileMenuOpen() {
+    return !!(mobileNav && mobileNav.classList.contains("active"));
+  }
+
+  function setMobileMenu(open) {
+    if (!navToggle || !mobileNav) return;
+    navToggle.classList.toggle("active", open);
+    mobileNav.classList.toggle("active", open);
+    navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+
+  if (navToggle && mobileNav) {
+    navToggle.addEventListener("click", () => {
+      SoundEngine.play("click");
+      setMobileMenu(!isMobileMenuOpen());
+    });
+
+    mobileNav.querySelectorAll(".mobile-link").forEach(link => {
+      link.addEventListener("click", () => {
+        SoundEngine.play("nav");
+        setMobileMenu(false);
+      });
+    });
+
+    mobileNav.addEventListener("click", (e) => {
+      if (e.target === mobileNav) setMobileMenu(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isMobileMenuOpen()) setMobileMenu(false);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900 && isMobileMenuOpen()) setMobileMenu(false);
+    });
+  }
+
+  // ============================================
   // BOOT SEQUENCE LOADER
   // ============================================
   const loader = document.getElementById("loader");
@@ -239,28 +284,6 @@ document.addEventListener("DOMContentLoaded", () => {
         nav && nav.classList.remove("scrolled");
       }
     });
-
-    // --- MOBILE NAV TOGGLE ---
-    const navToggle = document.getElementById("navToggle");
-    const mobileNav = document.getElementById("mobileNav");
-
-    if (navToggle && mobileNav) {
-      navToggle.addEventListener("click", () => {
-        SoundEngine.play("click");
-        navToggle.classList.toggle("active");
-        mobileNav.classList.toggle("active");
-        document.body.style.overflow = mobileNav.classList.contains("active") ? "hidden" : "";
-      });
-
-      mobileNav.querySelectorAll(".mobile-link").forEach(link => {
-        link.addEventListener("click", () => {
-          SoundEngine.play("nav");
-          navToggle.classList.remove("active");
-          mobileNav.classList.remove("active");
-          document.body.style.overflow = "";
-        });
-      });
-    }
 
     // --- HERO ENTRANCE ---
     const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
